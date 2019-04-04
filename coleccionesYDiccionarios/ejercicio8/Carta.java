@@ -1,6 +1,6 @@
 package coleccionesYDiccionarios.ejercicio8;
 
-public class Carta {
+public class Carta implements Comparable{
 
 	// enumeraciones Figuras y Palos
 	private Figuras figura;
@@ -47,15 +47,7 @@ public class Carta {
 		this.figura = figura;
 	}
 
-//	@Override
-//	public int compareTo(Carta carta) {
-//		if (palo.equals(carta.getPalo())) {
-//			return figura.compareTo(carta.getFigura());
-//		} else {
-//			return palo.compareTo(carta.getPalo());
-//		}
-//	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -99,6 +91,17 @@ public class Carta {
 	@Override
 	public String toString() {
 		return "Carta [palo=" + palo + ", figura=" + figura + "]";
+	}
+
+	@Override
+	public int compareTo(Object object) {
+		Carta carta = ((Carta) object); //casting
+		
+		if (palo.equals(carta.getPalo()))
+			return figura.compareTo(carta.getFigura());
+
+		return palo.compareTo(carta.getPalo());
+
 	}
 
 }

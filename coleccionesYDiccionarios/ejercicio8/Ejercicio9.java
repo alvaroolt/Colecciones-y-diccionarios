@@ -12,16 +12,17 @@ import java.util.Collections;
  * @author Álvaro Leiva Toledano
  * @version 0.9
  */
-public class Ejercicio9 extends Ejercicio8 {
+public class Ejercicio9 {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
-		// Coleccióon baraja, donde se encuentran todas las cartas.
+		// Colección baraja, donde se encuentran todas las cartas.
 		ArrayList<Carta> baraja = new ArrayList<Carta>();
 
-		// Colección descarte, son las cartas que sacamos de la baraja y se encuentran
-		// en nuestra mano
-		ArrayList<Carta> descarte = new ArrayList<Carta>();
+		// Colección mano, son las cartas que sacamos de la baraja y se encuentran
+		// en nuestra mano.
+		ArrayList<Carta> mano = new ArrayList<Carta>();
 
 		// Crea las cartas con las enumeraciones Figuras y Palos, y las añaden al
 		// arraylist baraja
@@ -36,19 +37,19 @@ public class Ejercicio9 extends Ejercicio8 {
 
 		// Obtener 10 cartas
 		for (int i = 1; i <= 10; i++) {
-			descarte.add(baraja.remove(0)); // 0 porque cogemos la carta de más arriba, es decir, el inicio (primer índice)
+			mano.add(baraja.remove(0)); // 0 porque cogemos la carta de más arriba, es decir, el inicio (primer índice)
 		}
 
 		// Mostrar la mano con las 10 cartas
-		for (Carta i : descarte) {
-			System.out.println(i);
+		for (Carta carta : mano) {
+			System.out.println(carta);
 		}
 
 		// Ordena las 10 cartas y las muestra.
-		Collections.sort(descarte);
-		System.out.println("Nuestras 10 cartas ordenadas son: ");
-		for (Carta i : descarte) {
-			System.out.println(i);
+		Collections.sort(mano);
+		System.out.println("\nNuestras 10 cartas ordenadas son: ");
+		for (Carta carta : mano) {
+			System.out.println(carta);
 		}
 	}
 }
